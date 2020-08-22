@@ -1,6 +1,7 @@
 ﻿@page "/myorders/{orderId:int}"
 @using System.Threading
 @inject HttpClient HttpClient
+@implements IDisposable
 
 <div class="main">
     @if (invalidOrder)
@@ -39,6 +40,11 @@
     OrderWithStatus orderWithStatus;
     bool invalidOrder;
     CancellationTokenSource pollingCancellationToken;
+
+    void IDisposable.Dispose()
+    {
+        pollingCancellationToken?.Cancel();
+    }
 
     protected override void OnParametersSet()
     {
