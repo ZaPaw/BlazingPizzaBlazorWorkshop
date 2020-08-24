@@ -15,6 +15,9 @@ namespace BlazingPizza.Client
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
+            // Belowe code => register class "OrderState" as a scoped service in the DI container
+            builder.Services.AddScoped<OrderState>();
+
             await builder.Build().RunAsync();
         }
     }
