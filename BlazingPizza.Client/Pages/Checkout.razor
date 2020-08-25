@@ -5,7 +5,7 @@
 @inject OrderState OrderState
 
 <div class="main">
-    <EditForm Model="OrderState.Order.DeliveryAddress">
+    <EditForm Model="OrderState.Order.DeliveryAddress" OnValidSubmit="PlaceOrder">
         <div class="checkout-cols">
             <div class="checkout-order-details">
                 <h4>Review order</h4>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <button class="checkout-button btn btn-warning" @onclick="PlaceOrder">
+        <button class="checkout-button btn btn-warning" type="submit">
             Place order
         </button>
         <DataAnnotationsValidator />
