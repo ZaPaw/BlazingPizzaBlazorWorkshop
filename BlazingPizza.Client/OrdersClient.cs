@@ -24,7 +24,7 @@ namespace BlazingPizza.Client
 
         public async Task<int> PlaceOrder(Order order)
         {
-            var response = await httpClient.PostAsJsonAsync("order", order);
+            var response = await httpClient.PostAsJsonAsync("orders", order);
             response.EnsureSuccessStatusCode();
             var orderId = await response.Content.ReadFromJsonAsync<int>();
             return orderId;
