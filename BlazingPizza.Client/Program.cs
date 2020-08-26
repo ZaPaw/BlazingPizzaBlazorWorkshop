@@ -18,6 +18,9 @@ namespace BlazingPizza.Client
             // Belowe code => register class "OrderState" as a scoped service in the DI container
             builder.Services.AddScoped<OrderState>();
 
+            // Add auth services
+            builder.Services.AddApiAuthorization();
+
             await builder.Build().RunAsync();
         }
     }
